@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Jared's Notebook · CP Journal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #181410;
+            --bg2: #201c16;
+            --paper: #faf7f0;
+            --paper2: #f3efdf;
+            --paper3: #ece3cf;
+            --ink: #2c2418;
+            --ink2: #4b3c2a;
+            --muted: #978a72;
+            --amber: #da8c1a;
+            --amber2: #b56f12;
+            --red: #bc3f2e;
+            --green: #2f6b47;
+            --blue: #1e4a6e;
+            --teal: #1d6f6f;
+            --purple: #6b3e8f;
+            --border: #ded0ae;
+            --shadow: rgba(0, 0, 0, 0.28);
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: var(--ink);
+            line-height: 1.45;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(200, 180, 130, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .app {
+            display: grid;
+            grid-template-columns: 270px 1fr;
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sidebar {
+            background: var(--bg2);
+            border-right: 1px solid rgba(218, 140, 26, 0.2);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: #2a241e;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(218, 140, 26, 0.4);
+            border-radius: 8px;
+        }
+
+        .profile {
+            padding: 28px 20px 24px;
+            text-align: center;
+            border-bottom: 1px solid rgba(218, 140, 26, 0.2);
+            position: relative;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 3px solid var(--amber);
+            box-shadow: 0 0 0 4px rgba(218, 140, 26, 0.2), 0 8px 20px black;
+            background: #362c20;
+        }
+
+        .profile-name {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            letter-spacing: -0.3px;
+            color: var(--amber);
+            margin-bottom: 4px;
+        }
+
+        .profile-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+        }
+
+        .nav-section {
+            margin-top: 16px;
+        }
+
+        .nav-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(218, 140, 26, 0.5);
+            padding: 12px 20px 6px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+            color: rgba(250, 247, 240, 0.6);
+            font-size: 0.9rem;
+            font-weight: 450;
+            user-select: none;
+        }
+
+        .nav-item:hover {
+            background: rgba(218, 140, 26, 0.08);
+            color: #faf7f0;
+            border-left-color: rgba(218, 140, 26, 0.5);
+        }
+
+        .nav-item.active {
+            background: rgba(218, 140, 26, 0.12);
+            color: var(--amber);
+            border-left-color: var(--amber);
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .nav-badge {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            background: rgba(218, 140, 26, 0.2);
+            color: var(--amber);
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .sidebar-clock {
+            margin-top: auto;
+            padding: 24px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(218, 140, 26, 0.15);
+        }
+
+        .clock-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--amber);
+            letter-spacing: 2px;
+        }
+
+        .clock-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .main {
+            overflow-y: auto;
+            background: radial-gradient(ellipse at 20% 30%, rgba(30, 20, 8, 0.2), transparent);
+        }
+
+        .tab-panel {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .panel-header {
+            background: rgba(32, 28, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(218, 140, 26, 0.2);
+            padding: 28px 40px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .panel-header h1 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+            color: #faf7f0;
+        }
+
+        .panel-header h1 em {
+            color: var(--amber);
+            font-style: normal;
+        }
+
+        .panel-header p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+
+        .panel-content {
+            padding: 32px 40px 60px;
+        }
+
+        .paper-card {
+            background: var(--paper);
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 1px 0 var(--border);
+            margin-bottom: 32px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+        }
+
+        .paper-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid rgba(170, 150, 110, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(250, 247, 240, 0.5);
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--ink);
+            letter-spacing: -0.2px;
+        }
+
+        .card-count {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            background: var(--paper3);
+            padding: 4px 12px;
+            border-radius: 40px;
+            color: var(--ink2);
+        }
+
+        .card-body {
+            padding: 20px 24px;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 10px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--ink2);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .link-item:hover {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+            transform: translateX(4px);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .link-label {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .link-arrow {
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .link-item:hover .link-arrow {
+            opacity: 1;
+        }
+
+        .sub-section {
+            margin-top: 18px;
+        }
+
+        .sub-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sub-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(150, 130, 90, 0.25);
+        }
+
+        .oj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .oj-card {
+            background: rgba(255, 255, 245, 0.9);
+            border-radius: 20px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .oj-card:hover {
+            transform: translateY(-4px);
+            background: var(--ink);
+            border-color: var(--amber);
+        }
+
+        .oj-card:hover .oj-title,
+        .oj-card:hover .oj-desc,
+        .oj-card:hover .oj-who {
+            color: var(--paper);
+        }
+
+        .oj-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .oj-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .oj-desc {
+            font-size: 0.8rem;
+            color: var(--ink2);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .oj-who {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+        }
+
+        .home-hero {
+            background: linear-gradient(115deg, #201c16, #2a241c);
+            padding: 44px 40px;
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            border-bottom: 1px solid rgba(218, 140, 26, 0.2);
+        }
+
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--amber);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-name {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #faf7f0;
+            letter-spacing: -1px;
+        }
+
+        .hero-name em {
+            color: var(--amber);
+            font-style: normal;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: rgba(250, 247, 240, 0.7);
+            margin-top: 8px;
+        }
+
+        .hero-greet {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: rgba(218, 140, 26, 0.15);
+            margin: 28px 40px;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .stat {
+            background: var(--bg2);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-num {
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--amber);
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .sticky-note {
+            background: #fef3c7;
+            padding: 16px 20px;
+            border-radius: 24px;
+            font-weight: 500;
+            color: #2c2418;
+            box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .rotate-1 {
+            transform: rotate(1deg);
+            background: #d9f0e1;
+        }
+
+        .rotate-2 {
+            transform: rotate(-1deg);
+            background: #ffe0cc;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 400px;
+            background: var(--bg2);
+            border: 1px solid rgba(218, 140, 26, 0.3);
+            border-radius: 60px;
+            padding: 10px 18px 10px 42px;
+            font-family: 'Inter', monospace;
+            font-size: 0.85rem;
+            color: var(--paper);
+            outline: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b7a77e' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 16px center;
+        }
+
+        .search-input:focus {
+            border-color: var(--amber);
+        }
+
+        .link-item.hidden {
+            display: none;
+        }
+
+        @media (max-width: 780px) {
+            .app {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .panel-header,
+            .panel-content {
+                padding: 20px;
+            }
+
+            .home-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px 20px;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr 1fr;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="avatar-wrap">
+                    <!-- ẢNH SIDEBAR ĐÃ ĐƯỢC THAY MỚI -->
+                    <img class="avatar"
+                        src="https://i.postimg.cc/zH7gdQTf/z7405484901162-ac45dae7cadca150fadb1c04bb6929fb.jpg"
+                        alt="Jared"
+                        onerror="this.src='https://ui-avatars.com/api/?background=da8c1a&color=fff&name=J&size=88'; this.onerror=null;">
+                    <div class="profile-name">Jared</div>
+                    <div class="profile-sub">CP · Lào Cai · Vietnam</div>
+                </div>
+            </div>
+            <nav>
+                <div class="nav-section">
+                    <div class="nav-label">Điều hướng</div>
+                    <div class="nav-item active" onclick="switchTab('home', this)"><span class="nav-icon">🏠</span>
+                        Trang chủ</div>
+                    <div class="nav-item" onclick="switchTab('built', this)"><span class="nav-icon">📦</span> Tài nguyên
+                        của tôi <span class="nav-badge">20</span></div>
+                    <div class="nav-item" onclick="switchTab('knowledge', this)"><span class="nav-icon">🧠</span> Kiến
+                        thức CP <span class="nav-badge">18</span></div>
+                    <div class="nav-item" onclick="switchTab('tht', this)"><span class="nav-icon">🏆</span> Tin học trẻ
+                        <span class="nav-badge">2</span>
+                    </div>
+                    <div class="nav-item" onclick="switchTab('practice', this)"><span class="nav-icon">⚔️</span> Luyện
+                        tập <span class="nav-badge">4</span></div>
+                    <div class="nav-item" onclick="switchTab('schedule', this)"><span class="nav-icon">📅</span> Học tập
+                        & TKB</div>
+                </div>
+            </nav>
+            <div class="sidebar-clock">
+                <div class="clock-time" id="clock">--:--:--</div>
+                <div class="clock-date" id="clock-date">--- -- ----</div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <!-- HOME -->
+            <div class="tab-panel active" id="tab-home">
+                <div class="home-hero">
+                    <!-- ẢNH HERO TRANG CHỦ ĐÃ ĐƯỢC THAY MỚI -->
+                    <img class="hero-photo"
+                        src="https://i.postimg.cc/zH7gdQTf/z7405484901162-ac45dae7cadca150fadb1c04bb6929fb.jpg"
+                        alt="Jared"
+                        onerror="this.src='https://ui-avatars.com/api/?background=da8c1a&color=fff&name=J&size=120'; this.onerror=null;">
+                    <div class="hero-text">
+                        <div class="hero-greet">📖 Welcome back,</div>
+                        <div class="hero-name">Jared's <em>Notebook</em></div>
+                        <div class="hero-desc">Nơi lưu trữ kiến thức, code mẫu và hành trình chinh phục Competitive
+                            Programming.</div>
+                    </div>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <div class="stat-num">20</div>
+                        <div class="stat-label">Tài nguyên</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">18</div>
+                        <div class="stat-label">Kiến thức CP</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">4</div>
+                        <div class="stat-label">OJ luyện tập</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num">∞</div>
+                        <div class="stat-label">Mục tiêu</div>
+                    </div>
+                </div>
+                <div style="padding: 8px 40px 40px; display:flex; gap:20px; flex-wrap:wrap;">
+                    <div class="sticky-note" style="background:#d1ecf1; color:#0c5460">📸 "Code như chụp ảnh — kiên
+                        nhẫn, tỉ mỉ, đẹp từng chi tiết."</div>
+                    <div class="sticky-note" style="background:#f8d7da; color:#721c24">🏆 "Đã đặt chân vào đấu trường,
+                        đừng chỉ mong được ghi danh, hãy code cho đến khi thuật toán của bạn trở thành tiêu chuẩn để kẻ
+                        khác phải vượt qua."</div>
+                    <div class="sticky-note" style="background:#d4edda; color:#155724">💡 "Thuật toán định hình tư duy,
+                        khung hình định hình bản sắc."</div>
+                </div>
+            </div>
+    </div>
+
+    <!-- BUILT (Tài nguyên) -->
+    <div class="tab-panel" id="tab-built">
+        <div class="panel-header">
+            <h1>📦 Tài nguyên <em>của tôi</em></h1>
+            <p>dysonhoang.github.io — tự xây dựng</p>
+        </div>
+        <div class="search-wrap" style="padding: 0 40px;"><input class="search-input" type="text"
+                placeholder="Tìm kiếm tài nguyên…" oninput="filterLinks(this, 'tab-built')"></div>
+        <div class="panel-content">
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">⚙️</span><span class="card-title">Hàm có sẵn
+                        đáng xem</span><span class="card-count">1</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/HamCoSan/"
+                            target="_blank"><span class="dot dot-amber"></span><span class="link-label">HamCoSan
+                                – Built-in Functions</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🗂️</span><span class="card-title">Cấu trúc dữ
+                        liệu</span><span class="card-count">5</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/Stack/"
+                            target="_blank"><span class="dot dot-blue"></span><span class="link-label">Stack</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/MonotonicQueue/" target="_blank"><span
+                                class="dot dot-blue"></span><span class="link-label">Monotonic
+                                Queue</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/Bit2D/" target="_blank"><span
+                                class="dot dot-blue"></span><span class="link-label">BIT 2D</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/NenBit2D/" target="_blank"><span
+                                class="dot dot-blue"></span><span class="link-label">Nén BIT 2D</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/PersistentSegmentTree/" target="_blank"><span
+                                class="dot dot-blue"></span><span class="link-label">Persistent Segment
+                                Tree</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🕸️</span><span class="card-title">Đồ thị &
+                        Cây</span><span class="card-count">9</span></div>
+                <div class="card-body">
+                    <div class="sub-section">
+                        <div class="sub-label">Duyệt đồ thị cơ bản</div>
+                        <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BFS-DFS/"
+                                target="_blank"><span class="dot dot-teal"></span><span class="link-label">BFS –
+                                    DFS</span><span class="link-arrow">↗</span></a></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-label">Đường đi ngắn nhất</div>
+                        <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BellmanFord/"
+                                target="_blank"><span class="dot dot-teal"></span><span
+                                    class="link-label">Bellman–Ford</span><span class="link-arrow">↗</span></a><a
+                                class="link-item" href="https://dysonhoang.github.io/Dijkstra/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">Dijkstra</span><span
+                                    class="link-arrow">↗</span></a><a class="link-item"
+                                href="https://dysonhoang.github.io/Floyd/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">Floyd–Warshall</span><span
+                                    class="link-arrow">↗</span></a></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-label">Cây nâng cao</div>
+                        <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/MST/"
+                                target="_blank"><span class="dot dot-teal"></span><span
+                                    class="link-label">MST</span><span class="link-arrow">↗</span></a><a
+                                class="link-item" href="https://dysonhoang.github.io/EulerTour/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">Euler
+                                    Tour</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                href="https://dysonhoang.github.io/LCA/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">LCA</span><span
+                                    class="link-arrow">↗</span></a><a class="link-item"
+                                href="https://dysonhoang.github.io/HLD/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">HLD</span><span
+                                    class="link-arrow">↗</span></a><a class="link-item"
+                                href="https://dysonhoang.github.io/DpOnTree/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">DP on Tree</span><span
+                                    class="link-arrow">↗</span></a><a class="link-item"
+                                href="https://dysonhoang.github.io/PhanTachTrongTam/" target="_blank"><span
+                                    class="dot dot-teal"></span><span class="link-label">Phân tách trọng
+                                    tâm</span><span class="link-arrow">↗</span></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🔢</span><span class="card-title">Quy hoạch
+                        động (DP)</span><span class="card-count">5</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/DpBitmask/"
+                            target="_blank"><span class="dot dot-purple"></span><span class="link-label">DP
+                                Bitmask</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/DpDigit/" target="_blank"><span
+                                class="dot dot-purple"></span><span class="link-label">DP Digit</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/ChiaCan/" target="_blank"><span
+                                class="dot dot-purple"></span><span class="link-label">Chia cắt</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/ChatNhiPhanSongSong/" target="_blank"><span
+                                class="dot dot-purple"></span><span class="link-label">Chặt nhị phân song
+                                song</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/ChatSongPhan/" target="_blank"><span
+                                class="dot dot-purple"></span><span class="link-label">Chặt song
+                                phân</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- KNOWLEDGE CP -->
+    <div class="tab-panel" id="tab-knowledge">
+        <div class="panel-header">
+            <h1>🧠 Kiến thức <em>CP</em></h1>
+            <p>Lộ trình khoa học</p>
+        </div>
+        <div class="panel-content">
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🌱</span><span class="card-title">Tầng 1 — Nền
+                        tảng</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BFS-DFS/"><span
+                                class="dot dot-green"></span><span class="link-label">BFS – DFS</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/Stack/"><span class="dot dot-green"></span><span
+                                class="link-label">Stack</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/MonotonicQueue/"><span class="dot dot-green"></span><span
+                                class="link-label">Monotonic
+                                Queue</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/ChatSongPhan/"><span class="dot dot-green"></span><span
+                                class="link-label">Chặt song phân</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🌿</span><span class="card-title">Tầng 2 — Đồ
+                        thị cơ bản</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BellmanFord/"><span
+                                class="dot dot-amber"></span><span class="link-label">Bellman–Ford</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/Dijkstra/"><span class="dot dot-amber"></span><span
+                                class="link-label">Dijkstra</span><span class="link-arrow">↗</span></a><a
+                            class="link-item" href="https://dysonhoang.github.io/Floyd/"><span
+                                class="dot dot-amber"></span><span class="link-label">Floyd–Warshall</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/MST/"><span class="dot dot-amber"></span><span
+                                class="link-label">MST</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🌳</span><span class="card-title">Tầng 3 — Cây
+                        nâng cao</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/EulerTour/"><span
+                                class="dot dot-teal"></span><span class="link-label">Euler Tour</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/LCA/"><span class="dot dot-teal"></span><span
+                                class="link-label">LCA</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/DpOnTree/"><span class="dot dot-teal"></span><span
+                                class="link-label">DP on Tree</span><span class="link-arrow">↗</span></a><a
+                            class="link-item" href="https://dysonhoang.github.io/HLD/"><span
+                                class="dot dot-teal"></span><span class="link-label">HLD</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/PhanTachTrongTam/"><span
+                                class="dot dot-teal"></span><span class="link-label">Phân tách trọng
+                                tâm</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🧩</span><span class="card-title">Tầng 4 — DP
+                        nâng cao</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/DpBitmask/"><span
+                                class="dot dot-purple"></span><span class="link-label">DP Bitmask</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/DpDigit/"><span class="dot dot-purple"></span><span
+                                class="link-label">DP Digit</span><span class="link-arrow">↗</span></a><a
+                            class="link-item" href="https://dysonhoang.github.io/ChiaCan/"><span
+                                class="dot dot-purple"></span><span class="link-label">Chia cắt</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/ChatNhiPhanSongSong/"><span
+                                class="dot dot-purple"></span><span class="link-label">Chặt nhị phân song
+                                song</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🔮</span><span class="card-title">Cấu trúc dữ
+                        liệu chuyên sâu</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/Bit2D/"><span
+                                class="dot dot-blue"></span><span class="link-label">BIT 2D</span><span
+                                class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/NenBit2D/"><span class="dot dot-blue"></span><span
+                                class="link-label">Nén BIT 2D</span><span class="link-arrow">↗</span></a><a
+                            class="link-item" href="https://dysonhoang.github.io/PersistentSegmentTree/"><span
+                                class="dot dot-blue"></span><span class="link-label">Persistent Segment
+                                Tree</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- THT -->
+    <div class="tab-panel" id="tab-tht">
+        <div class="panel-header">
+            <h1>🏆 Tin học <em>trẻ</em></h1>
+            <p>Chuyên đề ôn tập</p>
+        </div>
+        <div class="panel-content">
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🏅</span><span class="card-title">Tài liệu Tin
+                        học trẻ</span><span class="card-count">2</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/TinHocTre/"
+                            target="_blank"><span class="dot dot-amber"></span><span class="link-label">Tin học
+                                trẻ – Lý thuyết</span><span class="link-arrow">↗</span></a><a class="link-item"
+                            href="https://dysonhoang.github.io/DeTinHocTre/" target="_blank"><span
+                                class="dot dot-red"></span><span class="link-label">Đề Tin học trẻ – Thực
+                                hành</span><span class="link-arrow">↗</span></a></div>
+                    <div style="margin-top:24px;background:rgba(218,140,26,0.08);border-radius:20px;padding:16px">
+                        <p style="font-family:'JetBrains Mono';font-size:0.7rem;color:var(--amber);">💡 Gợi ý ôn
+                            tập</p>
+                        <p style="font-size:0.85rem;">Lý thuyết → bài tập từng chủ đề → đề thi thực hành → mock
+                            exam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRACTICE -->
+    <div class="tab-panel" id="tab-practice">
+        <div class="panel-header">
+            <h1>⚔️ Luyện <em>tập</em></h1>
+            <p>Online Judge rèn kỹ năng</p>
+        </div>
+        <div class="panel-content">
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🎯</span><span class="card-title">Online
+                        Judges</span></div>
+                <div class="card-body">
+                    <div class="oj-grid"><a class="oj-card"
+                            href="https://oj.vnoi.info/organization/tinhyeumangtheo/problems/" target="_blank">
+                            <div class="oj-icon">🇻🇳</div>
+                            <div class="oj-title">VNOI OJ</div>
+                            <div class="oj-desc">Bài tập tổ chức tinhyeumangtheo — thầy Tân giao</div>
+                            <div class="oj-who">👨‍🏫 Thầy Tân</div>
+                        </a><a class="oj-card" href="https://vjudge.net/group/vnh" target="_blank">
+                            <div class="oj-icon">⚡</div>
+                            <div class="oj-title">VJudge</div>
+                            <div class="oj-desc">Group VNH — bài tập anh Hải tổng hợp</div>
+                            <div class="oj-who">👤 Anh Hải</div>
+                        </a><a class="oj-card" href="https://codeforces.com/problemset" target="_blank">
+                            <div class="oj-icon">🔴</div>
+                            <div class="oj-title">Codeforces</div>
+                            <div class="oj-desc">Problemset rating 800–3500</div>
+                            <div class="oj-who">🌍 International</div>
+                        </a><a class="oj-card" href="https://oj.clue.edu.vn/official_contests/" target="_blank">
+                            <div class="oj-icon">📘</div>
+                            <div class="oj-title">Clue OJ</div>
+                            <div class="oj-desc">Official contests Clue Education</div>
+                            <div class="oj-who">🏫 Clue Edu</div>
+                        </a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">💡</span><span class="card-title">Hàm có sẵn
+                        đáng nhớ</span></div>
+                <div class="card-body">
+                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/HamCoSan/"
+                            target="_blank"><span class="dot dot-amber"></span><span class="link-label">HamCoSan
+                                – Built-in Reference</span><span class="link-arrow">↗</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCHEDULE -->
+    <div class="tab-panel" id="tab-schedule">
+        <div class="panel-header">
+            <h1>📅 Học tập <em>& TKB</em></h1>
+            <p>Tài nguyên & thời khóa biểu</p>
+        </div>
+        <div class="panel-content">
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">📺</span><span class="card-title">Tài liệu học
+                        tập</span></div>
+                <div class="card-body">
+                    <div class="oj-grid"><a class="oj-card"
+                            href="https://docs.google.com/spreadsheets/d/1fi8a_H_aGE2GDclr7l3SLj3j3f9IoYxIqZOS5G5EOWY/edit?gid=0#gid=0"
+                            target="_blank">
+                            <div class="oj-icon">📊</div>
+                            <div class="oj-title">GSPVH YouTube</div>
+                            <div class="oj-desc">Danh sách video học CP</div>
+                            <div class="oj-who">📺 YouTube Playlist</div>
+                        </a></div>
+                </div>
+            </div>
+            <div class="paper-card">
+                <div class="card-header"><span class="card-icon">🏫</span><span class="card-title">Thời khóa
+                        biểu</span></div>
+                <div class="card-body">
+                    <div class="oj-grid"><a class="oj-card" href="https://clctimetable.pages.dev/" target="_blank">
+                            <div class="oj-icon">🗓️</div>
+                            <div class="oj-title">CLC Timetable</div>
+                            <div class="oj-desc">Xem thời khóa biểu trên trường</div>
+                            <div class="oj-who">🏫 Trường học</div>
+                        </a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    </div>
+
+    <script>
+        function switchTab(id, el) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById('tab-' + id).classList.add('active');
+            el.classList.add('active');
+            document.querySelector('.main')?.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function filterLinks(input, tabId) {
+            const q = input.value.toLowerCase().trim();
+            const panel = document.getElementById(tabId);
+            if (!panel) return;
+            panel.querySelectorAll('.link-item').forEach(item => {
+                const label = item.querySelector('.link-label')?.textContent.toLowerCase() || '';
+                item.classList.toggle('hidden', q.length > 0 && !label.includes(q));
+            });
+        }
+        function updateClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0'), m = String(now.getMinutes()).padStart(2, '0'), s = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+            const days = ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+            const months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+            document.getElementById('clock-date').textContent = `${days[now.getDay()]} · ${now.getDate()}/${months[now.getMonth()]}/${now.getFullYear()}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+
+</html>
