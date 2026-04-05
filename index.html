@@ -501,24 +501,12 @@
         }
 
         .sticky-note {
-            background: #fef3c7;
             padding: 16px 20px;
             border-radius: 24px;
             font-weight: 500;
-            color: #2c2418;
             box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.1);
             display: inline-block;
             font-size: 0.9rem;
-        }
-
-        .rotate-1 {
-            transform: rotate(1deg);
-            background: #d9f0e1;
-        }
-
-        .rotate-2 {
-            transform: rotate(-1deg);
-            background: #ffe0cc;
         }
 
         .search-input {
@@ -578,7 +566,6 @@
         <aside class="sidebar">
             <div class="profile">
                 <div class="avatar-wrap">
-                    <!-- ẢNH SIDEBAR ĐÃ ĐƯỢC THAY MỚI -->
                     <img class="avatar"
                         src="https://i.postimg.cc/zH7gdQTf/z7405484901162-ac45dae7cadca150fadb1c04bb6929fb.jpg"
                         alt="Jared"
@@ -615,7 +602,6 @@
             <!-- HOME -->
             <div class="tab-panel active" id="tab-home">
                 <div class="home-hero">
-                    <!-- ẢNH HERO TRANG CHỦ ĐÃ ĐƯỢC THAY MỚI -->
                     <img class="hero-photo"
                         src="https://i.postimg.cc/zH7gdQTf/z7405484901162-ac45dae7cadca150fadb1c04bb6929fb.jpg"
                         alt="Jared"
@@ -655,319 +641,333 @@
                         khung hình định hình bản sắc."</div>
                 </div>
             </div>
-    </div>
 
-    <!-- BUILT (Tài nguyên) -->
-    <div class="tab-panel" id="tab-built">
-        <div class="panel-header">
-            <h1>📦 Tài nguyên <em>của tôi</em></h1>
-            <p>dysonhoang.github.io — tự xây dựng</p>
-        </div>
-        <div class="search-wrap" style="padding: 0 40px;"><input class="search-input" type="text"
-                placeholder="Tìm kiếm tài nguyên…" oninput="filterLinks(this, 'tab-built')"></div>
-        <div class="panel-content">
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">⚙️</span><span class="card-title">Hàm có sẵn
-                        đáng xem</span><span class="card-count">1</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/HamCoSan/"
-                            target="_blank"><span class="dot dot-amber"></span><span class="link-label">HamCoSan
-                                – Built-in Functions</span><span class="link-arrow">↗</span></a></div>
+            <!-- BUILT (Tài nguyên) -->
+            <div class="tab-panel" id="tab-built">
+                <div class="panel-header">
+                    <h1>📦 Tài nguyên <em>của tôi</em></h1>
+                    <p>dysonhoang.github.io — tự xây dựng</p>
                 </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🗂️</span><span class="card-title">Cấu trúc dữ
-                        liệu</span><span class="card-count">5</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/Stack/"
-                            target="_blank"><span class="dot dot-blue"></span><span class="link-label">Stack</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/MonotonicQueue/" target="_blank"><span
-                                class="dot dot-blue"></span><span class="link-label">Monotonic
-                                Queue</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/Bit2D/" target="_blank"><span
-                                class="dot dot-blue"></span><span class="link-label">BIT 2D</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/NenBit2D/" target="_blank"><span
-                                class="dot dot-blue"></span><span class="link-label">Nén BIT 2D</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/PersistentSegmentTree/" target="_blank"><span
-                                class="dot dot-blue"></span><span class="link-label">Persistent Segment
-                                Tree</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🕸️</span><span class="card-title">Đồ thị &
-                        Cây</span><span class="card-count">9</span></div>
-                <div class="card-body">
-                    <div class="sub-section">
-                        <div class="sub-label">Duyệt đồ thị cơ bản</div>
-                        <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BFS-DFS/"
-                                target="_blank"><span class="dot dot-teal"></span><span class="link-label">BFS –
-                                    DFS</span><span class="link-arrow">↗</span></a></div>
+                <div class="search-wrap" style="padding: 0 40px;"><input class="search-input" type="text"
+                        placeholder="Tìm kiếm tài nguyên…" oninput="filterLinks(this, 'tab-built')"></div>
+                <div class="panel-content">
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">⚙️</span><span class="card-title">Hàm có sẵn
+                                đáng xem</span><span class="card-count">1</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/HamCoSan/"
+                                    target="_blank"><span class="dot dot-amber"></span><span class="link-label">HamCoSan
+                                        – Built-in Functions</span><span class="link-arrow">↗</span></a></div>
+                        </div>
                     </div>
-                    <div class="sub-section">
-                        <div class="sub-label">Đường đi ngắn nhất</div>
-                        <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BellmanFord/"
-                                target="_blank"><span class="dot dot-teal"></span><span
-                                    class="link-label">Bellman–Ford</span><span class="link-arrow">↗</span></a><a
-                                class="link-item" href="https://dysonhoang.github.io/Dijkstra/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">Dijkstra</span><span
-                                    class="link-arrow">↗</span></a><a class="link-item"
-                                href="https://dysonhoang.github.io/Floyd/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">Floyd–Warshall</span><span
-                                    class="link-arrow">↗</span></a></div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🗂️</span><span class="card-title">Cấu trúc dữ
+                                liệu</span><span class="card-count">5</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/Stack/"
+                                    target="_blank"><span class="dot dot-blue"></span><span
+                                        class="link-label">Stack</span><span class="link-arrow">↗</span></a><a
+                                    class="link-item" href="https://dysonhoang.github.io/MonotonicQueue/"
+                                    target="_blank"><span class="dot dot-blue"></span><span class="link-label">Monotonic
+                                        Queue</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/Bit2D/" target="_blank"><span
+                                        class="dot dot-blue"></span><span class="link-label">BIT 2D</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/NenBit2D/" target="_blank"><span
+                                        class="dot dot-blue"></span><span class="link-label">Nén BIT 2D</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/PersistentSegmentTree/" target="_blank"><span
+                                        class="dot dot-blue"></span><span class="link-label">Persistent Segment
+                                        Tree</span><span class="link-arrow">↗</span></a></div>
+                        </div>
                     </div>
-                    <div class="sub-section">
-                        <div class="sub-label">Cây nâng cao</div>
-                        <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/MST/"
-                                target="_blank"><span class="dot dot-teal"></span><span
-                                    class="link-label">MST</span><span class="link-arrow">↗</span></a><a
-                                class="link-item" href="https://dysonhoang.github.io/EulerTour/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">Euler
-                                    Tour</span><span class="link-arrow">↗</span></a><a class="link-item"
-                                href="https://dysonhoang.github.io/LCA/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">LCA</span><span
-                                    class="link-arrow">↗</span></a><a class="link-item"
-                                href="https://dysonhoang.github.io/HLD/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">HLD</span><span
-                                    class="link-arrow">↗</span></a><a class="link-item"
-                                href="https://dysonhoang.github.io/DpOnTree/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">DP on Tree</span><span
-                                    class="link-arrow">↗</span></a><a class="link-item"
-                                href="https://dysonhoang.github.io/PhanTachTrongTam/" target="_blank"><span
-                                    class="dot dot-teal"></span><span class="link-label">Phân tách trọng
-                                    tâm</span><span class="link-arrow">↗</span></a></div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🕸️</span><span class="card-title">Đồ thị &
+                                Cây</span><span class="card-count">9</span></div>
+                        <div class="card-body">
+                            <div class="sub-section">
+                                <div class="sub-label">Duyệt đồ thị cơ bản</div>
+                                <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BFS-DFS/"
+                                        target="_blank"><span class="dot dot-teal"></span><span class="link-label">BFS –
+                                            DFS</span><span class="link-arrow">↗</span></a></div>
+                            </div>
+                            <div class="sub-section">
+                                <div class="sub-label">Đường đi ngắn nhất</div>
+                                <div class="link-grid"><a class="link-item"
+                                        href="https://dysonhoang.github.io/BellmanFord/" target="_blank"><span
+                                            class="dot dot-teal"></span><span
+                                            class="link-label">Bellman–Ford</span><span
+                                            class="link-arrow">↗</span></a><a class="link-item"
+                                        href="https://dysonhoang.github.io/Dijkstra/" target="_blank"><span
+                                            class="dot dot-teal"></span><span class="link-label">Dijkstra</span><span
+                                            class="link-arrow">↗</span></a><a class="link-item"
+                                        href="https://dysonhoang.github.io/Floyd/" target="_blank"><span
+                                            class="dot dot-teal"></span><span
+                                            class="link-label">Floyd–Warshall</span><span
+                                            class="link-arrow">↗</span></a></div>
+                            </div>
+                            <div class="sub-section">
+                                <div class="sub-label">Cây nâng cao</div>
+                                <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/MST/"
+                                        target="_blank"><span class="dot dot-teal"></span><span
+                                            class="link-label">MST</span><span class="link-arrow">↗</span></a><a
+                                        class="link-item" href="https://dysonhoang.github.io/EulerTour/"
+                                        target="_blank"><span class="dot dot-teal"></span><span class="link-label">Euler
+                                            Tour</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                        href="https://dysonhoang.github.io/LCA/" target="_blank"><span
+                                            class="dot dot-teal"></span><span class="link-label">LCA</span><span
+                                            class="link-arrow">↗</span></a><a class="link-item"
+                                        href="https://dysonhoang.github.io/HLD/" target="_blank"><span
+                                            class="dot dot-teal"></span><span class="link-label">HLD</span><span
+                                            class="link-arrow">↗</span></a><a class="link-item"
+                                        href="https://dysonhoang.github.io/DpOnTree/" target="_blank"><span
+                                            class="dot dot-teal"></span><span class="link-label">DP on Tree</span><span
+                                            class="link-arrow">↗</span></a><a class="link-item"
+                                        href="https://dysonhoang.github.io/PhanTachTrongTam/" target="_blank"><span
+                                            class="dot dot-teal"></span><span class="link-label">Phân tách trọng
+                                            tâm</span><span class="link-arrow">↗</span></a></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🔢</span><span class="card-title">Quy hoạch
-                        động (DP)</span><span class="card-count">5</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/DpBitmask/"
-                            target="_blank"><span class="dot dot-purple"></span><span class="link-label">DP
-                                Bitmask</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/DpDigit/" target="_blank"><span
-                                class="dot dot-purple"></span><span class="link-label">DP Digit</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/ChiaCan/" target="_blank"><span
-                                class="dot dot-purple"></span><span class="link-label">Chia cắt</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/ChatNhiPhanSongSong/" target="_blank"><span
-                                class="dot dot-purple"></span><span class="link-label">Chặt nhị phân song
-                                song</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/ChatSongPhan/" target="_blank"><span
-                                class="dot dot-purple"></span><span class="link-label">Chặt song
-                                phân</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- KNOWLEDGE CP -->
-    <div class="tab-panel" id="tab-knowledge">
-        <div class="panel-header">
-            <h1>🧠 Kiến thức <em>CP</em></h1>
-            <p>Lộ trình khoa học</p>
-        </div>
-        <div class="panel-content">
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🌱</span><span class="card-title">Tầng 1 — Nền
-                        tảng</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BFS-DFS/"><span
-                                class="dot dot-green"></span><span class="link-label">BFS – DFS</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/Stack/"><span class="dot dot-green"></span><span
-                                class="link-label">Stack</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/MonotonicQueue/"><span class="dot dot-green"></span><span
-                                class="link-label">Monotonic
-                                Queue</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/ChatSongPhan/"><span class="dot dot-green"></span><span
-                                class="link-label">Chặt song phân</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🌿</span><span class="card-title">Tầng 2 — Đồ
-                        thị cơ bản</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/BellmanFord/"><span
-                                class="dot dot-amber"></span><span class="link-label">Bellman–Ford</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/Dijkstra/"><span class="dot dot-amber"></span><span
-                                class="link-label">Dijkstra</span><span class="link-arrow">↗</span></a><a
-                            class="link-item" href="https://dysonhoang.github.io/Floyd/"><span
-                                class="dot dot-amber"></span><span class="link-label">Floyd–Warshall</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/MST/"><span class="dot dot-amber"></span><span
-                                class="link-label">MST</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🌳</span><span class="card-title">Tầng 3 — Cây
-                        nâng cao</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/EulerTour/"><span
-                                class="dot dot-teal"></span><span class="link-label">Euler Tour</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/LCA/"><span class="dot dot-teal"></span><span
-                                class="link-label">LCA</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/DpOnTree/"><span class="dot dot-teal"></span><span
-                                class="link-label">DP on Tree</span><span class="link-arrow">↗</span></a><a
-                            class="link-item" href="https://dysonhoang.github.io/HLD/"><span
-                                class="dot dot-teal"></span><span class="link-label">HLD</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/PhanTachTrongTam/"><span
-                                class="dot dot-teal"></span><span class="link-label">Phân tách trọng
-                                tâm</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🧩</span><span class="card-title">Tầng 4 — DP
-                        nâng cao</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/DpBitmask/"><span
-                                class="dot dot-purple"></span><span class="link-label">DP Bitmask</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/DpDigit/"><span class="dot dot-purple"></span><span
-                                class="link-label">DP Digit</span><span class="link-arrow">↗</span></a><a
-                            class="link-item" href="https://dysonhoang.github.io/ChiaCan/"><span
-                                class="dot dot-purple"></span><span class="link-label">Chia cắt</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/ChatNhiPhanSongSong/"><span
-                                class="dot dot-purple"></span><span class="link-label">Chặt nhị phân song
-                                song</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🔮</span><span class="card-title">Cấu trúc dữ
-                        liệu chuyên sâu</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/Bit2D/"><span
-                                class="dot dot-blue"></span><span class="link-label">BIT 2D</span><span
-                                class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/NenBit2D/"><span class="dot dot-blue"></span><span
-                                class="link-label">Nén BIT 2D</span><span class="link-arrow">↗</span></a><a
-                            class="link-item" href="https://dysonhoang.github.io/PersistentSegmentTree/"><span
-                                class="dot dot-blue"></span><span class="link-label">Persistent Segment
-                                Tree</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- THT -->
-    <div class="tab-panel" id="tab-tht">
-        <div class="panel-header">
-            <h1>🏆 Tin học <em>trẻ</em></h1>
-            <p>Chuyên đề ôn tập</p>
-        </div>
-        <div class="panel-content">
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🏅</span><span class="card-title">Tài liệu Tin
-                        học trẻ</span><span class="card-count">2</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/TinHocTre/"
-                            target="_blank"><span class="dot dot-amber"></span><span class="link-label">Tin học
-                                trẻ – Lý thuyết</span><span class="link-arrow">↗</span></a><a class="link-item"
-                            href="https://dysonhoang.github.io/DeTinHocTre/" target="_blank"><span
-                                class="dot dot-red"></span><span class="link-label">Đề Tin học trẻ – Thực
-                                hành</span><span class="link-arrow">↗</span></a></div>
-                    <div style="margin-top:24px;background:rgba(218,140,26,0.08);border-radius:20px;padding:16px">
-                        <p style="font-family:'JetBrains Mono';font-size:0.7rem;color:var(--amber);">💡 Gợi ý ôn
-                            tập</p>
-                        <p style="font-size:0.85rem;">Lý thuyết → bài tập từng chủ đề → đề thi thực hành → mock
-                            exam.</p>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🔢</span><span class="card-title">Quy hoạch
+                                động (DP)</span><span class="card-count">5</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/DpBitmask/"
+                                    target="_blank"><span class="dot dot-purple"></span><span class="link-label">DP
+                                        Bitmask</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/DpDigit/" target="_blank"><span
+                                        class="dot dot-purple"></span><span class="link-label">DP Digit</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/ChiaCan/" target="_blank"><span
+                                        class="dot dot-purple"></span><span class="link-label">Chia cắt</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/ChatNhiPhanSongSong/" target="_blank"><span
+                                        class="dot dot-purple"></span><span class="link-label">Chặt nhị phân song
+                                        song</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/ChatSongPhan/" target="_blank"><span
+                                        class="dot dot-purple"></span><span class="link-label">Chặt song
+                                        phân</span><span class="link-arrow">↗</span></a></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- PRACTICE -->
-    <div class="tab-panel" id="tab-practice">
-        <div class="panel-header">
-            <h1>⚔️ Luyện <em>tập</em></h1>
-            <p>Online Judge rèn kỹ năng</p>
-        </div>
-        <div class="panel-content">
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🎯</span><span class="card-title">Online
-                        Judges</span></div>
-                <div class="card-body">
-                    <div class="oj-grid"><a class="oj-card"
-                            href="https://oj.vnoi.info/organization/tinhyeumangtheo/problems/" target="_blank">
-                            <div class="oj-icon">🇻🇳</div>
-                            <div class="oj-title">VNOI OJ</div>
-                            <div class="oj-desc">Bài tập tổ chức tinhyeumangtheo — thầy Tân giao</div>
-                            <div class="oj-who">👨‍🏫 Thầy Tân</div>
-                        </a><a class="oj-card" href="https://vjudge.net/group/vnh" target="_blank">
-                            <div class="oj-icon">⚡</div>
-                            <div class="oj-title">VJudge</div>
-                            <div class="oj-desc">Group VNH — bài tập anh Hải tổng hợp</div>
-                            <div class="oj-who">👤 Anh Hải</div>
-                        </a><a class="oj-card" href="https://codeforces.com/problemset" target="_blank">
-                            <div class="oj-icon">🔴</div>
-                            <div class="oj-title">Codeforces</div>
-                            <div class="oj-desc">Problemset rating 800–3500</div>
-                            <div class="oj-who">🌍 International</div>
-                        </a><a class="oj-card" href="https://oj.clue.edu.vn/official_contests/" target="_blank">
-                            <div class="oj-icon">📘</div>
-                            <div class="oj-title">Clue OJ</div>
-                            <div class="oj-desc">Official contests Clue Education</div>
-                            <div class="oj-who">🏫 Clue Edu</div>
-                        </a></div>
+            <!-- KNOWLEDGE CP -->
+            <div class="tab-panel" id="tab-knowledge">
+                <div class="panel-header">
+                    <h1>🧠 Kiến thức <em>CP</em></h1>
+                    <p>Lộ trình khoa học</p>
+                </div>
+                <div class="panel-content">
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🌱</span><span class="card-title">Tầng 1 — Nền
+                                tảng</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item"
+                                    href="https://dysonhoang.github.io/BFS-DFS/"><span
+                                        class="dot dot-green"></span><span class="link-label">BFS – DFS</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/Stack/"><span class="dot dot-green"></span><span
+                                        class="link-label">Stack</span><span class="link-arrow">↗</span></a><a
+                                    class="link-item" href="https://dysonhoang.github.io/MonotonicQueue/"><span
+                                        class="dot dot-green"></span><span class="link-label">Monotonic
+                                        Queue</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/ChatSongPhan/"><span
+                                        class="dot dot-green"></span><span class="link-label">Chặt song phân</span><span
+                                        class="link-arrow">↗</span></a></div>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🌿</span><span class="card-title">Tầng 2 — Đồ
+                                thị cơ bản</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item"
+                                    href="https://dysonhoang.github.io/BellmanFord/"><span
+                                        class="dot dot-amber"></span><span class="link-label">Bellman–Ford</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/Dijkstra/"><span
+                                        class="dot dot-amber"></span><span class="link-label">Dijkstra</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/Floyd/"><span class="dot dot-amber"></span><span
+                                        class="link-label">Floyd–Warshall</span><span class="link-arrow">↗</span></a><a
+                                    class="link-item" href="https://dysonhoang.github.io/MST/"><span
+                                        class="dot dot-amber"></span><span class="link-label">MST</span><span
+                                        class="link-arrow">↗</span></a></div>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🌳</span><span class="card-title">Tầng 3 — Cây
+                                nâng cao</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item"
+                                    href="https://dysonhoang.github.io/EulerTour/"><span
+                                        class="dot dot-teal"></span><span class="link-label">Euler Tour</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/LCA/"><span class="dot dot-teal"></span><span
+                                        class="link-label">LCA</span><span class="link-arrow">↗</span></a><a
+                                    class="link-item" href="https://dysonhoang.github.io/DpOnTree/"><span
+                                        class="dot dot-teal"></span><span class="link-label">DP on Tree</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/HLD/"><span class="dot dot-teal"></span><span
+                                        class="link-label">HLD</span><span class="link-arrow">↗</span></a><a
+                                    class="link-item" href="https://dysonhoang.github.io/PhanTachTrongTam/"><span
+                                        class="dot dot-teal"></span><span class="link-label">Phân tách trọng
+                                        tâm</span><span class="link-arrow">↗</span></a></div>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🧩</span><span class="card-title">Tầng 4 — DP
+                                nâng cao</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item"
+                                    href="https://dysonhoang.github.io/DpBitmask/"><span
+                                        class="dot dot-purple"></span><span class="link-label">DP Bitmask</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/DpDigit/"><span
+                                        class="dot dot-purple"></span><span class="link-label">DP Digit</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/ChiaCan/"><span
+                                        class="dot dot-purple"></span><span class="link-label">Chia cắt</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/ChatNhiPhanSongSong/"><span
+                                        class="dot dot-purple"></span><span class="link-label">Chặt nhị phân song
+                                        song</span><span class="link-arrow">↗</span></a></div>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🔮</span><span class="card-title">Cấu trúc dữ
+                                liệu chuyên sâu</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/Bit2D/"><span
+                                        class="dot dot-blue"></span><span class="link-label">BIT 2D</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/NenBit2D/"><span
+                                        class="dot dot-blue"></span><span class="link-label">Nén BIT 2D</span><span
+                                        class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/PersistentSegmentTree/"><span
+                                        class="dot dot-blue"></span><span class="link-label">Persistent Segment
+                                        Tree</span><span class="link-arrow">↗</span></a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">💡</span><span class="card-title">Hàm có sẵn
-                        đáng nhớ</span></div>
-                <div class="card-body">
-                    <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/HamCoSan/"
-                            target="_blank"><span class="dot dot-amber"></span><span class="link-label">HamCoSan
-                                – Built-in Reference</span><span class="link-arrow">↗</span></a></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- SCHEDULE -->
-    <div class="tab-panel" id="tab-schedule">
-        <div class="panel-header">
-            <h1>📅 Học tập <em>& TKB</em></h1>
-            <p>Tài nguyên & thời khóa biểu</p>
-        </div>
-        <div class="panel-content">
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">📺</span><span class="card-title">Tài liệu học
-                        tập</span></div>
-                <div class="card-body">
-                    <div class="oj-grid"><a class="oj-card"
-                            href="https://docs.google.com/spreadsheets/d/1fi8a_H_aGE2GDclr7l3SLj3j3f9IoYxIqZOS5G5EOWY/edit?gid=0#gid=0"
-                            target="_blank">
-                            <div class="oj-icon">📊</div>
-                            <div class="oj-title">GSPVH YouTube</div>
-                            <div class="oj-desc">Danh sách video học CP</div>
-                            <div class="oj-who">📺 YouTube Playlist</div>
-                        </a></div>
+            <!-- THT -->
+            <div class="tab-panel" id="tab-tht">
+                <div class="panel-header">
+                    <h1>🏆 Tin học <em>trẻ</em></h1>
+                    <p>Chuyên đề ôn tập</p>
+                </div>
+                <div class="panel-content">
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🏅</span><span class="card-title">Tài liệu Tin
+                                học trẻ</span><span class="card-count">2</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/TinHocTre/"
+                                    target="_blank"><span class="dot dot-amber"></span><span class="link-label">Tin học
+                                        trẻ – Lý
+                                        thuyết</span><span class="link-arrow">↗</span></a><a class="link-item"
+                                    href="https://dysonhoang.github.io/DeTinHocTre/" target="_blank"><span
+                                        class="dot dot-red"></span><span class="link-label">Đề Tin học trẻ – Thực
+                                        hành</span><span class="link-arrow">↗</span></a></div>
+                            <div
+                                style="margin-top:24px;background:rgba(218,140,26,0.08);border-radius:20px;padding:16px">
+                                <p style="font-family:'JetBrains Mono';font-size:0.7rem;color:var(--amber);">💡 Gợi ý ôn
+                                    tập</p>
+                                <p style="font-size:0.85rem;">Lý thuyết → bài tập từng chủ đề → đề thi thực hành → mock
+                                    exam.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="paper-card">
-                <div class="card-header"><span class="card-icon">🏫</span><span class="card-title">Thời khóa
-                        biểu</span></div>
-                <div class="card-body">
-                    <div class="oj-grid"><a class="oj-card" href="https://clctimetable.pages.dev/" target="_blank">
-                            <div class="oj-icon">🗓️</div>
-                            <div class="oj-title">CLC Timetable</div>
-                            <div class="oj-desc">Xem thời khóa biểu trên trường</div>
-                            <div class="oj-who">🏫 Trường học</div>
-                        </a></div>
+
+            <!-- PRACTICE -->
+            <div class="tab-panel" id="tab-practice">
+                <div class="panel-header">
+                    <h1>⚔️ Luyện <em>tập</em></h1>
+                    <p>Online Judge rèn kỹ năng</p>
+                </div>
+                <div class="panel-content">
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🎯</span><span class="card-title">Online
+                                Judges</span></div>
+                        <div class="card-body">
+                            <div class="oj-grid"><a class="oj-card"
+                                    href="https://oj.vnoi.info/organization/tinhyeumangtheo/problems/" target="_blank">
+                                    <div class="oj-icon">🇻🇳</div>
+                                    <div class="oj-title">VNOI OJ</div>
+                                    <div class="oj-desc">Bài tập tổ chức tinhyeumangtheo — thầy Tân giao</div>
+                                    <div class="oj-who">👨‍🏫 Thầy Tân</div>
+                                </a><a class="oj-card" href="https://vjudge.net/group/vnh" target="_blank">
+                                    <div class="oj-icon">⚡</div>
+                                    <div class="oj-title">VJudge</div>
+                                    <div class="oj-desc">Group VNH — bài tập anh Hải tổng hợp</div>
+                                    <div class="oj-who">👤 Anh Hải</div>
+                                </a><a class="oj-card" href="https://codeforces.com/problemset" target="_blank">
+                                    <div class="oj-icon">🔴</div>
+                                    <div class="oj-title">Codeforces</div>
+                                    <div class="oj-desc">Problemset rating 800–3500</div>
+                                    <div class="oj-who">🌍 International</div>
+                                </a><a class="oj-card" href="https://oj.clue.edu.vn/official_contests/" target="_blank">
+                                    <div class="oj-icon">📘</div>
+                                    <div class="oj-title">Clue OJ</div>
+                                    <div class="oj-desc">Official contests Clue Education</div>
+                                    <div class="oj-who">🏫 Clue Edu</div>
+                                </a></div>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">💡</span><span class="card-title">Hàm có sẵn
+                                đáng nhớ</span></div>
+                        <div class="card-body">
+                            <div class="link-grid"><a class="link-item" href="https://dysonhoang.github.io/HamCoSan/"
+                                    target="_blank"><span class="dot dot-amber"></span><span class="link-label">HamCoSan
+                                        – Built-in
+                                        Reference</span><span class="link-arrow">↗</span></a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    </main>
+
+            <!-- SCHEDULE -->
+            <div class="tab-panel" id="tab-schedule">
+                <div class="panel-header">
+                    <h1>📅 Học tập <em>& TKB</em></h1>
+                    <p>Tài nguyên & thời khóa biểu</p>
+                </div>
+                <div class="panel-content">
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">📺</span><span class="card-title">Tài liệu học
+                                tập</span></div>
+                        <div class="card-body">
+                            <div class="oj-grid"><a class="oj-card"
+                                    href="https://docs.google.com/spreadsheets/d/1fi8a_H_aGE2GDclr7l3SLj3j3f9IoYxIqZOS5G5EOWY/edit?gid=0#gid=0"
+                                    target="_blank">
+                                    <div class="oj-icon">📊</div>
+                                    <div class="oj-title">GSPVH YouTube</div>
+                                    <div class="oj-desc">Danh sách video học CP</div>
+                                    <div class="oj-who">📺 YouTube Playlist</div>
+                                </a></div>
+                        </div>
+                    </div>
+                    <div class="paper-card">
+                        <div class="card-header"><span class="card-icon">🏫</span><span class="card-title">Thời khóa
+                                biểu</span></div>
+                        <div class="card-body">
+                            <div class="oj-grid"><a class="oj-card" href="https://clctimetable.pages.dev/"
+                                    target="_blank">
+                                    <div class="oj-icon">🗓️</div>
+                                    <div class="oj-title">CLC Timetable</div>
+                                    <div class="oj-desc">Xem thời khóa biểu trên trường</div>
+                                    <div class="oj-who">🏫 Trường học</div>
+                                </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script>
